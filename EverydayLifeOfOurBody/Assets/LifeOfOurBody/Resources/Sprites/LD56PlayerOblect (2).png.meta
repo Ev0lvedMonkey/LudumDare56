@@ -1,0 +1,421 @@
+fileFormatVersion: 2
+guid: 3d34d09889416d94d940bf0783eb1b5d
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: LD56PlayerOblect (2)_0
+      rect:
+        serializedVersion: 2
+        x: 1033
+        y: 1052
+        width: 472
+        height: 486
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d22b4e44399cade49b3487d18d0cbce4
+      internalID: 208229495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LD56PlayerOblect (2)_1
+      rect:
+        serializedVersion: 2
+        x: 1214
+        y: 1520
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11cac1acc59d7944286f70202d4b19e4
+      internalID: -1876257391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LD56PlayerOblect (2)_2
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 1215
+        width: 298
+        height: 277
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0a3688210539ce4d9170aac52a7f269
+      internalID: -238509634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LD56PlayerOblect (2)_3
+      rect:
+        serializedVersion: 2
+        x: 1042
+        y: 1393
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c538966b2bda0243a54c1d60264ecdd
+      internalID: -1007808900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LD56PlayerOblect (2)_4
+      rect:
+        serializedVersion: 2
+        x: 1501
+        y: 1245
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f827f56169b26f04cacd4cc7a4b9cbd2
+      internalID: 555692947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LD56PlayerOblect (2)_5
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 754
+        width: 426
+        height: 316
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4adee99ecc5f9d4ea1cf7e73f697fc8
+      internalID: -1513696152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LD56PlayerOblect (2)_7
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 751
+        width: 438
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64ea39bf41b9a294ba8635018f7d93a9
+      internalID: 484199773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LD56PlayerOblect (2)_8
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 765
+        width: 372
+        height: 269
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46e3cfdca29c13d42a598a707c938a43
+      internalID: 1836203123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LD56PlayerOblect (2)_16
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 534
+        width: 157
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54e0580c68b462a46a3889978c28af39
+      internalID: 1136589457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LD56PlayerOblect (2)_18
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 531
+        width: 169
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91ec3f29681c1604daa8ebb2d414f254
+      internalID: -1425156721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LD56PlayerOblect (2)_21
+      rect:
+        serializedVersion: 2
+        x: 1065
+        y: 528
+        width: 158
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f5086773a279c64ebb4bd3f0cace392
+      internalID: -1479591519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LD56PlayerOblect (2)_24
+      rect:
+        serializedVersion: 2
+        x: 1312
+        y: 557
+        width: 132
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c05e5c387d13eb944bac126d887be961
+      internalID: -703574345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      LD56PlayerOblect (2)_0: 208229495
+      LD56PlayerOblect (2)_1: -1876257391
+      LD56PlayerOblect (2)_10: -1796664328
+      LD56PlayerOblect (2)_11: -819439782
+      LD56PlayerOblect (2)_12: 1855414489
+      LD56PlayerOblect (2)_13: 559888618
+      LD56PlayerOblect (2)_14: 1432194303
+      LD56PlayerOblect (2)_15: -828146184
+      LD56PlayerOblect (2)_16: 1136589457
+      LD56PlayerOblect (2)_17: 2056086156
+      LD56PlayerOblect (2)_18: -1425156721
+      LD56PlayerOblect (2)_19: -349386493
+      LD56PlayerOblect (2)_2: -238509634
+      LD56PlayerOblect (2)_20: 728842954
+      LD56PlayerOblect (2)_21: -1479591519
+      LD56PlayerOblect (2)_22: 418248413
+      LD56PlayerOblect (2)_23: -1392814398
+      LD56PlayerOblect (2)_24: -703574345
+      LD56PlayerOblect (2)_25: -41179839
+      LD56PlayerOblect (2)_26: -1950168089
+      LD56PlayerOblect (2)_27: 1871544631
+      LD56PlayerOblect (2)_28: -1817008628
+      LD56PlayerOblect (2)_29: 975421
+      LD56PlayerOblect (2)_3: -1007808900
+      LD56PlayerOblect (2)_30: 897453842
+      LD56PlayerOblect (2)_31: -1775212853
+      LD56PlayerOblect (2)_32: -1115797883
+      LD56PlayerOblect (2)_33: 600198961
+      LD56PlayerOblect (2)_34: 1281182778
+      LD56PlayerOblect (2)_35: 1053013419
+      LD56PlayerOblect (2)_36: 728638799
+      LD56PlayerOblect (2)_37: 63711194
+      LD56PlayerOblect (2)_38: -1585150173
+      LD56PlayerOblect (2)_39: 667936267
+      LD56PlayerOblect (2)_4: 555692947
+      LD56PlayerOblect (2)_40: -1514749095
+      LD56PlayerOblect (2)_41: -418389749
+      LD56PlayerOblect (2)_5: -1513696152
+      LD56PlayerOblect (2)_6: 1768635428
+      LD56PlayerOblect (2)_7: 484199773
+      LD56PlayerOblect (2)_8: 1836203123
+      LD56PlayerOblect (2)_9: 1931501816
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
