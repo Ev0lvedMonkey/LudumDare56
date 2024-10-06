@@ -2,23 +2,42 @@ using UnityEngine;
 
 public class PlayerState : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer _spriteRenderer;
-    [SerializeField] private Rigidbody2D _rb;
-    [SerializeField] private PlayerMove _pm;
-    [SerializeField] private Sprite _newSprite;
-    [SerializeField] private Vector3 _newSize = new Vector3(1.5f, 1.5f, 1f);
-    [SerializeField] private CapsuleCollider2D _capsuleCollider;
+    public GameObject particalEffect;  // Particle System, который будет проигрываться
+    public Sprite newSprite;           // Новый спрайт, который нужно установить
+    public GameObject player;          // Игрок
+    private Rigidbody2D _rb;
+    private SpriteRenderer _spriteRenderer;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void Start()
+    {
+        // Инициализируем ссылки на необходимые компоненты
+        _rb = player.GetComponent<Rigidbody2D>();
+        _spriteRenderer = player.GetComponent<SpriteRenderer>();
+    }
+
+    // Этот метод вызывается, когда объект выходит из триггера
+    void OnTriggerExit2D(Collider2D other)
     {
         if (other.TryGetComponent(out TriggerDoor door))
         {
+            //// Проигрываем Particle System
+            //if (particalEffect != null)
+            //{
+            //    particalEffect.SetActive(true);
+            //}
+
+            // Меняем спрайт
+            _spriteRenderer.sprite = newSprite;
+
+            // Меняем размер игрока (localScale)
+            player.transform.localScale = new Vector3(0.5f, 0.4f, 1f);
+
+            // Меняем ось Z на 0
+            Quaternion rotation = player.transform.rotation;
+            rotation.z = 0f;
+            player.transform.rotation = rotation;
             _rb.freezeRotation = true;
-            _spriteRenderer.sprite = _newSprite;
-            transform.localScale = _newSize;
-            _pm.enabled = true;
-            _capsuleCollider.size = new Vector2(_newSize.x, _newSize.y);
-            _capsuleCollider.offset = new Vector2(0, 0);
         }
     }
+
 }
