@@ -19,15 +19,11 @@ public class BloodSpawner : MonoBehaviour
     [Inject]
     private DiContainer _container;
 
-    private void Start()
-    {
-        _isSpawning = true;
-        for (int i = 0; i < StartBloodCount; i++)
-            SpawnBlood();
-    }
-
     private void Update()
     {
+        if (!_isSpawning)
+            return;
+
         timeSinceLastSpawn += Time.deltaTime;
 
         if (timeSinceLastSpawn >= spawnInterval && currentBloodCount < MaxBloodCount)
@@ -36,6 +32,23 @@ public class BloodSpawner : MonoBehaviour
                 SpawnBlood();
             timeSinceLastSpawn = 0f;
         }
+    }
+
+    public void StartGame()
+    {
+        SpanwOn();
+        SpawnManyBlood(StartBloodCount);
+    }
+
+    public void SpanwOn()
+    {
+        _isSpawning = true;
+    }
+
+    public void SpawnManyBlood(int countOfBlood)
+    {
+        for (int i = 0; i < countOfBlood; i++)
+            SpawnBlood();
     }
 
     private void SpawnBlood()

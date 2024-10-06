@@ -1,10 +1,13 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TimerScoreController : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _timerText;
     [SerializeField] private TextMeshProUGUI _scoreText;
+    [SerializeField] private OpenCloseTransit _openCloseCanvas;
+    [SerializeField] private MenuPauseController _menuPauseController;
     [SerializeField] private int MaxScore = 100;
     [SerializeField] private float gameDuration = 60f;
 
@@ -69,10 +72,17 @@ public class TimerScoreController : MonoBehaviour
         if (isWin)
         {
             Debug.Log("You win! Maximum oxygen collected.");
+            _openCloseCanvas.StartTransition(false);
+            _menuPauseController.OpenMenu(MenuPauseController.MenuStatus.Win);
+
         }
         else
         {
             Debug.Log("Game over! Time ran out.");
+            _openCloseCanvas.StartTransition(false);
+            _openCloseCanvas.CheckActiveImage(false);
+            _openCloseCanvas.UpdateImagesState();
+            _menuPauseController.OpenMenu(MenuPauseController.MenuStatus.Lose);
         }
     }
 }
