@@ -74,7 +74,6 @@ public class SelectUnits : MonoBehaviour
                 UnitSelect unit;
                 if (!collider.TryGetComponent(out UnitSelect selectedUnit))
                     continue;
-
                 unit = selectedUnit;
                 unit.SetSelectedUnit(true);
                 _selectedUnits.Add(unit);
@@ -91,6 +90,7 @@ public class SelectUnits : MonoBehaviour
 
     private void HideSelectionArea() =>
         _selectionArea.gameObject.SetActive(false);
+
     private void ShowSelectionArea() =>
         _selectionArea.gameObject.SetActive(true);
 }

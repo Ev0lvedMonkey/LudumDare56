@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using Zenject;
 
 public class BloodSpawner : MonoBehaviour
 {
@@ -8,34 +8,46 @@ public class BloodSpawner : MonoBehaviour
     [SerializeField] private List<Transform> _list = new();
 
     private bool _isSpawning;
-    private float spawnInterval = 8f; 
+    private float spawnInterval = 4f;
     private float timeSinceLastSpawn = 0f;
 
-    private const int StartBloodCount = 10;
+    private const int StartBloodCount = 4;  
+    private const int AfterBloodCount = 2;  
+    private const int MaxBloodCount = 20;   
+    private int currentBloodCount = 0;      
+
+    [Inject]
+    private DiContainer _container;
 
     private void Start()
     {
         _isSpawning = true;
         for (int i = 0; i < StartBloodCount; i++)
-            SpawnBlood();        
+            SpawnBlood();
     }
 
     private void Update()
     {
         timeSinceLastSpawn += Time.deltaTime;
 
-        if (timeSinceLastSpawn >= spawnInterval)
+        if (timeSinceLastSpawn >= spawnInterval && currentBloodCount < MaxBloodCount)
         {
-            SpawnBlood();
-            timeSinceLastSpawn = 0f; 
+            for (int i = 0; i < AfterBloodCount; i++)
+                SpawnBlood();
+            timeSinceLastSpawn = 0f;
         }
     }
 
     private void SpawnBlood()
     {
-        if (!_isSpawning) return;
-        var unit = Instantiate(Resources.Load("Prefabs/Blood"), _spawnTransform.position, Quaternion.identity);
+        if (!_isSpawning || currentBloodCount >= MaxBloodCount) return;
+
+        var unit = 
+            _container.InstantiatePrefab(Resources.Load("Prefabs/Blood"),
+            _spawnTransform.position, Quaternion.identity, transform);
         unit.GetComponent<UnitSelect>().MoveTo(GetRandomPointInCollider());
+
+        currentBloodCount++; 
     }
 
     private Vector3 GetRandomPointInCollider()

@@ -18,6 +18,7 @@ public class UnitSelect : MonoBehaviour
         SetSelectedUnit(false);
     }
 
+
     private void Update()
     {
         Vector3 moveDir = (_movePosition - transform.position).normalized;
@@ -39,6 +40,11 @@ public class UnitSelect : MonoBehaviour
     public void MoveTo(Vector3 newMovePos)
     {
         _movePosition = newMovePos;
+    }
+
+    public void DestroyObj()
+    {
+        gameObject.SetActive(false);
     }
 
 }

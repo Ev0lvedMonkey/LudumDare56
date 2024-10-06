@@ -1,10 +1,13 @@
 using UnityEngine;
+using Zenject;
 
 public class OxygenPuckUp : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer _oxygenSP;
     [SerializeField] private UnitSelect _unit;
-    [SerializeField] private QECanvasAnimAndHandler _qeCanvas;
+
+    [Inject] 
+    private QECanvasAnimAndHandler _qeCanvas;
     [SerializeField] private bool _isOxygen;
 
     private void OnValidate()
@@ -31,11 +34,12 @@ public class OxygenPuckUp : MonoBehaviour
         }
         if (collision.TryGetComponent(out OxygenReceiver oxygenReciver))
         {
-            if (!_isOxygen)
+            if (_isOxygen == false)
                 return;
-            Debug.Log($"Awesome {oxygen.name}");
+            Debug.Log($"Awesome {oxygenReciver.name}");
             _unit.MoveTo(oxygenReciver.GetEscapePoint());
-            Destroy(gameObject, 1.4f);
+            oxygenReciver.GetComponent<TimerScoreController>().GetNewBlood();
+            _unit.DestroyObj();
             return;
         }
         if (collision.TryGetComponent(out IsStoppingObject stoppingObject))
