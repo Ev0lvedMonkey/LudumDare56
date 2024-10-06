@@ -13,10 +13,16 @@ public class TriggerDoor : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if (collision.tag == "Player")
         {
             playerMove.enabled = true;
-            door.SetActive(true);
+            StartCoroutine(WaitASec());
         }
+    }
+
+    private IEnumerator WaitASec()
+    {
+        yield return new WaitForSeconds(1);
+        door.SetActive(true);
     }
 }
