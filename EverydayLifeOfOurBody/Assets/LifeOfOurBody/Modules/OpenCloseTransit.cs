@@ -58,6 +58,10 @@ public class OpenCloseTransit : MonoBehaviour
 
     private void Update()
     {
+        if (isFirstPress)
+            Time.timeScale = 0;
+        else
+            Time.timeScale = 1;
         if (!immediateTransition && Input.anyKeyDown && isFirstPress)
         {
             StartTransition(true);
