@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class TimerScoreController : MonoBehaviour
 {
@@ -10,22 +9,26 @@ public class TimerScoreController : MonoBehaviour
     [SerializeField] private MenuPauseController _menuPauseController;
     [SerializeField] private int MaxScore = 100;
     [SerializeField] private float gameDuration = 60f;
+    [SerializeField] private bool isEnemyMode = false;
+    [SerializeField] private int totalEnemies = 3;
 
     private float _timer;
     private int _score;
+    private int _remainingEnemies;
     private bool _gameOver;
 
     private void Start()
     {
-        _timer = gameDuration;
         _score = 0;
-        _gameOver = false;     
+        _remainingEnemies = totalEnemies;
+        _gameOver = false;
+        _timer = 1000;
         UpdateScoreText();
     }
 
     private void Update()
     {
-        if (!_gameOver)  
+        if (!_gameOver)
         {
             if (_timer > 0)
             {
@@ -35,21 +38,45 @@ public class TimerScoreController : MonoBehaviour
             else
             {
                 _timer = 0;
-                EndGame(false);  
+                EndGame(false);
             }
         }
     }
 
+    public void StartTimer()
+    {
+        _timer = gameDuration;
+        UpdateTimerText();
+    }
+
     public void GetNewBlood()
     {
-        if (_score < MaxScore && !_gameOver)
+        if (!isEnemyMode)
         {
-            _score++;
+            if (_score < MaxScore && !_gameOver)
+            {
+                _score++;
+                UpdateScoreText();
+
+                if (_score >= MaxScore)
+                {
+                    EndGame(true);
+                }
+            }
+        }
+    }
+
+    public void RemoveEnemy()
+    {
+        if (isEnemyMode && !_gameOver)
+        {
+            _remainingEnemies--;
+
             UpdateScoreText();
 
-            if (_score >= MaxScore)
+            if (_remainingEnemies <= 0)
             {
-                EndGame(true);  
+                EndGame(true);
             }
         }
     }
@@ -62,26 +89,30 @@ public class TimerScoreController : MonoBehaviour
 
     private void UpdateScoreText()
     {
-        _scoreText.text = $"{_score}/{MaxScore} oxygen";
+        if (!isEnemyMode)
+        {
+            _scoreText.text = $"{_score}/{MaxScore} oxygen";
+        }
+        else
+        {
+            _scoreText.text = $"Enemies left: {_remainingEnemies}";
+        }
     }
 
     private void EndGame(bool isWin)
     {
-        _gameOver = true;  
+        _gameOver = true;
 
         if (isWin)
         {
-            Debug.Log("You win! Maximum oxygen collected.");
+            Debug.Log("You win!");
             _openCloseCanvas.StartTransition(false);
             _menuPauseController.OpenMenu(MenuPauseController.MenuStatus.Win);
-
         }
         else
         {
-            Debug.Log("Game over! Time ran out.");
+            Debug.Log("Game over!");
             _openCloseCanvas.StartTransition(false);
-            _openCloseCanvas.CheckActiveImage(false);
-            _openCloseCanvas.UpdateImagesState();
             _menuPauseController.OpenMenu(MenuPauseController.MenuStatus.Lose);
         }
     }

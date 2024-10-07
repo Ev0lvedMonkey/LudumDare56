@@ -8,11 +8,12 @@ public class BloodSpawner : MonoBehaviour
     [SerializeField] private List<Transform> _list = new();
     [SerializeField] private bool _spawnBlood = true;
     [SerializeField] private GameObject _mackObj;
+    [SerializeField] private MenuPauseController _menuPauseController;
 
     private bool _isSpawning;
-    private float spawnInterval = 4f;
     private float timeSinceLastSpawn = 0f;
 
+    [SerializeField] private float spawnInterval = 4f;
     [SerializeField] private int StartBloodCount = 4;
     [SerializeField] private int AfterBloodCount = 2;
     [SerializeField] private int MaxBloodCount = 20;
@@ -20,6 +21,7 @@ public class BloodSpawner : MonoBehaviour
 
     [Inject]
     private DiContainer _container;
+
 
     private void Update()
     {
@@ -34,12 +36,18 @@ public class BloodSpawner : MonoBehaviour
                 SpawnUnit();
             timeSinceLastSpawn = 0f;
         }
+
+        if (AreAllUnitsDeactivated())
+        {
+            _menuPauseController.OpenMenu(MenuPauseController.MenuStatus.Lose);
+        }
     }
 
     public void StartGame()
     {
         SpanwOn();
         SpawnManyUnits(StartBloodCount);
+        _menuPauseController.gameObject.SetActive(true);
     }
 
     public void SpanwOn()
@@ -66,9 +74,19 @@ public class BloodSpawner : MonoBehaviour
         {
             var unit = _container.InstantiatePrefab(_mackObj, _spawnTransform.position, Quaternion.identity, transform);
             unit.GetComponent<UnitSelect>().MoveTo(GetRandomPointInCollider());
-            Debug.Log("sadasdsasasadas");
         }
         currentBloodCount++;
+    }
+
+    private bool AreAllUnitsDeactivated()
+    {
+        for (int i = 1; i < transform.childCount; i++)
+        {
+            Transform child = transform.GetChild(i);
+            if (child.gameObject.activeSelf)
+                return false;
+        }
+        return true;
     }
 
     private Vector3 GetRandomPointInCollider()

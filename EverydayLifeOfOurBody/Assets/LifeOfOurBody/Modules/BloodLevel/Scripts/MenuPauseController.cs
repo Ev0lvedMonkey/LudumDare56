@@ -8,7 +8,6 @@ public class MenuPauseController : MonoBehaviour
     [SerializeField] private GameObject menuUI;
     [SerializeField] private TextMeshProUGUI statusText;
     [SerializeField] private Button mainMenuButton;
-    [SerializeField] private OpenCloseTransit openCloseTransit;
 
     private bool isPaused = false;
     private bool isGameOver = false;
