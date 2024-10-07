@@ -1,18 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] public GameObject developersBoard;
+    [SerializeField] public GameObject ChoiceLvl;
+    public void ExitGame()
     {
-        
+        Application.Quit();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void BackMenuWithChoiceLvl()
     {
-        
+        ChoiceLvl.SetActive(false);
+    }
+    public void OpenChoiceMenu()
+    {
+        ChoiceLvl.SetActive(true);
+    }
+    public void StartLvlOne()
+    {
+        SceneManager.LoadScene("BloodLevelScene");
+    }
+    public void OpendevelopersBoard()
+    {
+        developersBoard.SetActive(true);
+    }
+
+    public void BackMenuWithDevelopersBoard()
+    {
+        developersBoard.SetActive(false);
     }
 }
