@@ -217,6 +217,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OpentransitCnavas
       objectReference: {fileID: 0}
+    - target: {fileID: 1898917530906860682, guid: d526a0f2ad8ba5d48a2fa2f1fee24f61, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2044249577844531877, guid: d526a0f2ad8ba5d48a2fa2f1fee24f61, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -430,6 +434,10 @@ PrefabInstance:
     - target: {fileID: 2266388188979600667, guid: 47f902320f5c70544a1440edd476c6b2, type: 3}
       propertyPath: m_Name
       value: MenuPauseController
+      objectReference: {fileID: 0}
+    - target: {fileID: 2266388188979600667, guid: 47f902320f5c70544a1440edd476c6b2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -690,12 +698,12 @@ GameObject:
   - component: {fileID: 713404970}
   - component: {fileID: 713404973}
   m_Layer: 0
-  m_Name: GoodBro
-  m_TagString: Untagged
+  m_Name: Food
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!58 &713404970
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -792,8 +800,8 @@ Transform:
   m_GameObject: {fileID: 713404969}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.99, y: 3.65, z: 0}
-  m_LocalScale: {x: 0.34, y: 0.34, z: 0.34}
+  m_LocalPosition: {x: 9.46, y: 3.65, z: 0}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -807,7 +815,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 713404969}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2b34c3b7418b174486021233146985d, type: 3}
+  m_Script: {fileID: 11500000, guid: bbf4ba10cd34ba54f935850484d42111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &764116633
@@ -1956,8 +1964,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.62, y: -1.48, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2001,7 +2009,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &1287711277
 GameObject:
   m_ObjectHideFlags: 0
@@ -2264,6 +2272,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WinPauseLoseCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5681304041973086168, guid: 4e51f4c613d536642a8bd89c5f683fff, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7541722971557304883, guid: 4e51f4c613d536642a8bd89c5f683fff, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2517,7 +2529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57db703d7a743524d82184e47e814e1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  growFactor: 1.1
+  _countMass: 0
 --- !u!114 &1984295285
 MonoBehaviour:
   m_ObjectHideFlags: 0

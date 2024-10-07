@@ -4,37 +4,33 @@ using UnityEngine;
 
 public class EatingFood : MonoBehaviour
 {
-    [SerializeField] private float growFactor = 1.1f; // Коэффициент увеличения размера
-    private CircleCollider2D _collider;
-    private float _playerSize;
+    [SerializeField] private float _countMass;
 
     private void Start()
     {
-        _collider = GetComponent<CircleCollider2D>();
-        _playerSize = transform.localScale.x; 
+        _countMass = 10.5f;
+    }
+    //Проигрыш игрока
+    public void RemovePlayer()
+    {
+        Destroy(gameObject);
+        Debug.Log("like a death");
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void ScaleUp(float countMass)
     {
-        if (collision.TryGetComponent(out IsFood food))
+        if(transform.localScale.x > 1.5f || transform.localScale.y > 1.5f)
         {
-            float foodSize = collision.transform.localScale.x; 
-
-            if (foodSize < _playerSize)
-            {
-                Eat(collision.gameObject);
-                Debug.Log("Eated");
-            }
-            else
-                Debug.Log($"not Eated\n{foodSize}  {_playerSize}");
+            transform.localScale = new Vector3(1.5f, 1.5f, 0);
+            return;
         }
+        transform.localScale = new Vector3(transform.localScale.x + countMass, transform.localScale.y + countMass, 0);
+        _countMass += countMass;
     }
 
-    private void Eat(GameObject food)
+    public float GetCountMass()
     {
-        _playerSize *= growFactor;
-        transform.localScale = new Vector3(_playerSize, _playerSize, 1); 
-
-        Destroy(food); 
+        return _countMass;
     }
+
 }
