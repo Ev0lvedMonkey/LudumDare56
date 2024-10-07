@@ -6,15 +6,17 @@ public class BloodSpawner : MonoBehaviour
 {
     [SerializeField] private Transform _spawnTransform;
     [SerializeField] private List<Transform> _list = new();
+    [SerializeField] private bool _spawnBlood = true;
+    [SerializeField] private GameObject _mackObj;
 
     private bool _isSpawning;
     private float spawnInterval = 4f;
     private float timeSinceLastSpawn = 0f;
 
-    private const int StartBloodCount = 4;  
-    private const int AfterBloodCount = 2;  
-    private const int MaxBloodCount = 20;   
-    private int currentBloodCount = 0;      
+    [SerializeField] private int StartBloodCount = 4;
+    [SerializeField] private int AfterBloodCount = 2;
+    [SerializeField] private int MaxBloodCount = 20;
+    private int currentBloodCount = 0;
 
     [Inject]
     private DiContainer _container;
@@ -29,7 +31,7 @@ public class BloodSpawner : MonoBehaviour
         if (timeSinceLastSpawn >= spawnInterval && currentBloodCount < MaxBloodCount)
         {
             for (int i = 0; i < AfterBloodCount; i++)
-                SpawnBlood();
+                SpawnUnit();
             timeSinceLastSpawn = 0f;
         }
     }
@@ -37,7 +39,7 @@ public class BloodSpawner : MonoBehaviour
     public void StartGame()
     {
         SpanwOn();
-        SpawnManyBlood(StartBloodCount);
+        SpawnManyUnits(StartBloodCount);
     }
 
     public void SpanwOn()
@@ -45,22 +47,28 @@ public class BloodSpawner : MonoBehaviour
         _isSpawning = true;
     }
 
-    public void SpawnManyBlood(int countOfBlood)
+    public void SpawnManyUnits(int count)
     {
-        for (int i = 0; i < countOfBlood; i++)
-            SpawnBlood();
+        for (int i = 0; i < count; i++)
+            SpawnUnit();
     }
 
-    private void SpawnBlood()
+    private void SpawnUnit()
     {
         if (!_isSpawning || currentBloodCount >= MaxBloodCount) return;
 
-        var unit = 
-            _container.InstantiatePrefab(Resources.Load("Prefabs/Blood"),
-            _spawnTransform.position, Quaternion.identity, transform);
-        unit.GetComponent<UnitSelect>().MoveTo(GetRandomPointInCollider());
-
-        currentBloodCount++; 
+        if (_spawnBlood)
+        {
+            var unit = _container.InstantiatePrefab(Resources.Load("Prefabs/Blood"), _spawnTransform.position, Quaternion.identity, transform);
+            unit.GetComponent<UnitSelect>().MoveTo(GetRandomPointInCollider());
+        }
+        else
+        {
+            var unit = _container.InstantiatePrefab(_mackObj, _spawnTransform.position, Quaternion.identity, transform);
+            unit.GetComponent<UnitSelect>().MoveTo(GetRandomPointInCollider());
+            Debug.Log("sadasdsasasadas");
+        }
+        currentBloodCount++;
     }
 
     private Vector3 GetRandomPointInCollider()
